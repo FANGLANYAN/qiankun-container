@@ -27,7 +27,7 @@ registerMicroApps([
     name: '应用一', // app name registered
     entry: '//localhost:3031',
     container: '#container', //修改成主应用中提供给子应用挂载的容器ID
-    activeRule: '/micro-react-app1',
+    activeRule: '/home/micro-react-app1',
     props:{
       name:'你好' //给子应用传参
     }
@@ -36,7 +36,7 @@ registerMicroApps([
     name: '应用二',
     entry:'//localhost:3032',
     container: '#container',
-    activeRule: '/micro-react-app2',
+    activeRule: '/home/micro-react-app2',
     props:{
       name:'小果' //给子应用传参
     }
@@ -45,7 +45,7 @@ registerMicroApps([
     name: '应用三',
     entry:'//localhost:3033',
     container: '#container',
-    activeRule: '/micro-vue-app3',   
+    activeRule: '/home/micro-vue-app3',   
     props:{
       name:'vue' //给子应用传参
     }

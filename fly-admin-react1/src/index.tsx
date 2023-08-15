@@ -29,7 +29,7 @@ function render(props = {}) {
   //@ts-ignore
   const { container } = props;
   ReactDOM.render(
-    <BrowserRouter basename={container?'/micro-react-app1':'/'}> 
+    <BrowserRouter basename={container?'/home/micro-react-app1':'/'}> 
         <App />
     </BrowserRouter>
  ,

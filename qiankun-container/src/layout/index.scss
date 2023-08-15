@@ -1,0 +1,24 @@
+#layout {
+    background: #eee;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    .content{
+        width: 100%;
+        flex:1;
+        padding-top: 60px;
+        height: 100%;
+        .menu{
+            height: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+             z-index:9999;
+        }
+    }
+    #container{
+        height: 100%;
+        flex: 1;
+    }
+}

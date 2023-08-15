@@ -6,6 +6,7 @@ module.exports = {
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
+    proxy: "http://localhost:9001",
   },
   configureWebpack: {
     output: {

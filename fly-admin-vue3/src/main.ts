@@ -1,6 +1,8 @@
+import { breakOutLogin } from './../../qiankun-container/src/utils/common';
 import './public-path'
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router';
 
 //@ts-ignore
 let instance = null
@@ -10,6 +12,7 @@ function render(props = {}){
 //@ts-ignore
     const { container } = props
     instance = createApp(App)
+    instance.use(router)
     instance.mount(container ? container.querySelector('#app'):'#app')
 }
 
@@ -26,9 +29,12 @@ export async function bootstrap(){
 export async function mount(props = {}){
     console.log(props,'props');
     //@ts-ignore
-    const { container } = props
+    const { container,breakOutLogin } = props
     console.log(container,'container');
+    //@ts-ignore
+    console.log(instance,'insta');
     
+    //@ts-ignore
    render(props)
 //@ts-ignore
 instance.config.globalProperties.$onGlobalStateChange = props.onGlobalStateChange
