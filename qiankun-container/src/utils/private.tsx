@@ -2,17 +2,21 @@
 
 import { FC } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-interface Iprops{
-    children?:any
-}
-const Private :FC<Iprops> = (props)=>{
-    let token = '123'
-    const location = useLocation()
-    if(token==='123'){
-        return <>{props.children}</>
-    }else{
-        return <Navigate to={'/login'}></Navigate>
-    }
-}
 
-export default Private
+import { getToken } from "./common";
+
+interface Iprops {
+  children?: any;
+}
+const Private: FC<Iprops> = (props) => {
+  let token = getToken();
+  const location = useLocation();
+  if (token) {
+    return <>{props.children}</>;
+  } else {
+    return <Navigate to={"/?redirect" + location.pathname}></Navigate>;
+    //这里重定向到登录，并且登录完成之后，可以回到当前页面
+  }
+};
+
+export default Private;

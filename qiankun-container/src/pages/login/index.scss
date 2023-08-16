@@ -1,0 +1,24 @@
+#login{
+    width: 100vw;
+    height: 100vh;
+    background: rgba($color: #74afbe, $alpha: .3);
+    padding: 80px;
+    .title{
+        font-size: 24px;
+        // color: #fff;
+    }
+    .changeRegister{
+        margin-bottom: 10px;
+        font-size: 10px;
+        color: #46a3ba;
+        text-decoration: underline;
+        text-align: right;
+        cursor: pointer;
+    }
+    .content {
+        width: 400px;
+        height: 400px;
+        background: rgba($color: #fff, $alpha: .7)
+
+    }
+}

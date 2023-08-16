@@ -1,66 +1,76 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {BrowserRouter} from 'react-router-dom'
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { registerMicroApps, start } from 'qiankun';
-import {initGlobalState,MicroAppStateActions} from 'qiankun'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-import './index.css';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { registerMicroApps, start } from "qiankun";
+import { initGlobalState, MicroAppStateActions } from "qiankun";
+
+//导入store
+import store from "./store";
+//导入react-redux提供器
+import { Provider } from "react-redux";
+import "./index.css";
 const state = {
-  name:'好不好'
-}
+  name: "好不好",
+};
 //初始化state
-const actions:MicroAppStateActions = initGlobalState(state)
-actions.onGlobalStateChange((state,preState)=>{
+const actions: MicroAppStateActions = initGlobalState(state);
+actions.onGlobalStateChange((state, preState) => {
   //state 变更后的状态
   //preState 变更前的状态
-  console.log(state,'state',preState,'preState','改'); //无论是子应用还是主应用 修改了全局的 state 都会调用此函数
-})
+  console.log(state, "state", preState, "preState", "改"); //无论是子应用还是主应用 修改了全局的 state 都会调用此函数
+});
 setTimeout(() => {
   console.log(12);
-actions.setGlobalState({...state,age:8})
+  actions.setGlobalState({ ...state, age: 8 });
 }, 1000);
-actions.offGlobalStateChange()  //主应用操作qiankun的生命周期
+actions.offGlobalStateChange(); //主应用操作qiankun的生命周期
 registerMicroApps([
   {
-    name: '应用一', // app name registered
-    entry: '//localhost:3031',
-    container: '#container', //修改成主应用中提供给子应用挂载的容器ID
-    activeRule: '/home/micro-react-app1',
-    props:{
-      name:'你好' //给子应用传参
-    }
+    name: "应用一", // app name registered
+    entry: "//localhost:3031",
+    container: "#container", //修改成主应用中提供给子应用挂载的容器ID
+    activeRule: "/home/micro-react-app1",
+    props: {
+      name: "你好", //给子应用传参
+    },
   },
   {
-    name: '应用二',
-    entry:'//localhost:3032',
-    container: '#container',
-    activeRule: '/home/micro-react-app2',
-    props:{
-      name:'小果' //给子应用传参
-    }
+    name: "应用二",
+    entry: "//localhost:3032",
+    container: "#container",
+    activeRule: "/home/micro-react-app2",
+    props: {
+      name: "小果", //给子应用传参
+    },
   },
   {
-    name: '应用三',
-    entry:'//localhost:3033',
-    container: '#container',
-    activeRule: '/home/micro-vue-app3',   
-    props:{
-      name:'vue' //给子应用传参
-    }
+    name: "应用三",
+    entry: "//localhost:3033",
+    container: "#container",
+    activeRule: "/home/micro-vue-app3",
+    props: {
+      name: "vue", //给子应用传参
+    },
   },
 ]);
 
 start();
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>  <App /></BrowserRouter>
-  
+    <BrowserRouter>
+      {/* 使用Provider组件把App包裹起来，便于其内组件都可以共享redux的数据 */}
+
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

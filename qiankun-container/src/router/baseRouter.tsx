@@ -1,5 +1,4 @@
-import {Navigate} from 'react-router-dom'
-import Private from '../utils/private';
+import Private from "../utils/private";
 import Layout from "../layout";
 import Login from "../pages/login";
 import Register from "../pages/register";
@@ -14,24 +13,25 @@ interface Router {
 const baseRoutes: Array<Router> = [
   {
     path: "/home",
-    element:<Private>
-      <Layout/>
-      </Private>,
-    children: [{ path: '*', element:'' }]
+    element: (
+      <Private>
+        <Layout />
+      </Private>
+    ),
+    children: [{ path: "*", element: "" }],
   },
   {
     path: "/register",
-    element:<Register/>,
+    element: <Register />,
   },
   {
     path: "/login",
-    element:<Login/>,
+    element: <Login />,
   },
   {
     path: "*",
-    element:<NotFound/>,
+    element: <NotFound />,
   },
 ];
 //导出基础路由
 export default baseRoutes;
-

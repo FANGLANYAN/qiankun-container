@@ -51,5 +51,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:9001"
+  "proxy": "http://localhost:9001",
+  "devDependencies": {
+    "@types/nprogress": "^0.2.0",
+    "@types/redux-logger": "^3.0.9"
+  }
 }
