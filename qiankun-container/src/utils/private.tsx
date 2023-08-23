@@ -14,7 +14,7 @@ const Private: FC<Iprops> = (props) => {
   if (token) {
     return <>{props.children}</>;
   } else {
-    return <Navigate to={"/?redirect" + location.pathname}></Navigate>;
+    return <Navigate to={"/login"}></Navigate>;
     //这里重定向到登录，并且登录完成之后，可以回到当前页面
   }
 };

@@ -1,6 +1,15 @@
 div{
     box-sizing: border-box;
 }
+button{
+    border: none;
+    outline: none;
+    background: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
 
 // 弹性布局
 .flex {
@@ -34,7 +43,7 @@ div{
    align-items: flex-start;
 }
 .col-end {
-    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .colums-center {
@@ -60,4 +69,7 @@ div{
 
 .radius14{
     border-radius: 14px;
+}
+.radius4{
+    border-radius: 4px;
 }

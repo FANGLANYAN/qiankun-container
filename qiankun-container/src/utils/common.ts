@@ -6,16 +6,20 @@ export const getToken = () => {
   return getStorage("token");
 };
 
-//存取localstorage
+//存取删除localstorage
 export const setStorage = (key: string, value: any) => {
   value = JSON.stringify(value);
   localStorage.setItem(key, value);
-  console.log(`${key}:${value}存储成功`);
+  // console.log(`${key}:${value}存储成功`);
 };
 export const getStorage = (key: string) => {
-  let value = localStorage.getItem(key);
-  if (typeof value === "object" && value !== null) {
-    return JSON.parse(value);
-  }
-  return value;
+  let value: any = localStorage.getItem(key);
+  let newValue = JSON.parse(value);
+  return newValue;
+};
+export const removeStorage = () => {
+  let needRemoveList = ["token", "userInfo", "micro_List"];
+  needRemoveList.forEach((item) => {
+    localStorage.removeItem(item);
+  });
 };

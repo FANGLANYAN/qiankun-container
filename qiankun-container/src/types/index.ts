@@ -3,6 +3,10 @@ export interface LoginType {
   userName: string;
   password: string;
 }
+export interface listParamsType {
+  pageSize: number;
+  pageIndex: number;
+}
 
 //reducer接受参数类型
 /**
@@ -22,3 +26,37 @@ export interface ActionParams {
 //     userName: string;
 //   };
 // }
+
+//项目+菜单
+export interface ProjectItem {
+  id: number;
+  activeRule: string;
+  name: string;
+  projectIcon: string;
+  entry: string;
+  isUsing: boolean;
+  container?: string;
+}
+export interface MenuItem {
+  id: number;
+  menuName: string;
+  menuPath: string;
+}
+export interface BradeItem {
+  name: string;
+  path: string;
+}
+
+export interface IBasePagination<T> {
+  list: T[];
+  // pagination: {
+  pageIndex: number;
+  pageSize: number;
+  total: number;
+  // }
+}
+
+export class BasePaginationParams {
+  public pageIndex: number = 1;
+  public pageSize: number = 10;
+}

@@ -12,6 +12,8 @@ import store from "./store";
 //导入react-redux提供器
 import { Provider } from "react-redux";
 import "./index.css";
+import { getStorage } from "./utils/common";
+
 const state = {
   name: "好不好",
 };
@@ -27,35 +29,10 @@ setTimeout(() => {
   actions.setGlobalState({ ...state, age: 8 });
 }, 1000);
 actions.offGlobalStateChange(); //主应用操作qiankun的生命周期
-registerMicroApps([
-  {
-    name: "应用一", // app name registered
-    entry: "//localhost:3031",
-    container: "#container", //修改成主应用中提供给子应用挂载的容器ID
-    activeRule: "/home/micro-react-app1",
-    props: {
-      name: "你好", //给子应用传参
-    },
-  },
-  {
-    name: "应用二",
-    entry: "//localhost:3032",
-    container: "#container",
-    activeRule: "/home/micro-react-app2",
-    props: {
-      name: "小果", //给子应用传参
-    },
-  },
-  {
-    name: "应用三",
-    entry: "//localhost:3033",
-    container: "#container",
-    activeRule: "/home/micro-vue-app3",
-    props: {
-      name: "vue", //给子应用传参
-    },
-  },
-]);
+const micro_List = getStorage("micro_List");
+console.log(micro_List, "micro_List");
+
+registerMicroApps(micro_List || []);
 
 start();
 
@@ -74,7 +51,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

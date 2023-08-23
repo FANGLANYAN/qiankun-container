@@ -1,0 +1,42 @@
+#micro{
+    background:#4f87f7;
+    height: 100%;
+    overflow-y: scroll;
+    font-size: 14px;
+    &::-webkit-scrollbar{
+            display: none;
+    }
+    .micro{
+        &-list{
+            width: 140px;
+        }
+        &-item {
+            padding: 10px;
+            text-align: center;
+            background:#4f87f7;
+            font-weight: 500;
+            color: #fff;
+        }
+        &-submenu{
+            width: 500px;
+            padding: 10px;
+            background:#6f9cf9;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            font-weight: 500;
+             color: #fff;
+
+            div {
+                width: 31%;
+                height: 28px;
+                line-height: 28px;
+                font-size: 14px;
+                // background: rgba($color: #000000, $alpha: .1);
+                margin: 0 5px 8px;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
