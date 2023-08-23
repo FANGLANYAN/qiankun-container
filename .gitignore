@@ -1,5 +1,5 @@
 .DS_Store
-/fly-admin-react1/node_modules
 /fly-admin-react2/node_modules
-/fly-admin-vue3/node_modules
+/qiankun-admin/node_modules
+/qiankun-common/node_modules
 /qiankun-container/node_modules
